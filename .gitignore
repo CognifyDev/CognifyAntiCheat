@@ -1,0 +1,9 @@
+.idea
+*.sln
+global.json
+CognifyAntiCheat/obj/*.*
+CognifyAntiCheat/bin/*.*
+.git
+*.DotSettings
+CognifyAntiCheat/obj
+CognifyAntiCheat/bin
