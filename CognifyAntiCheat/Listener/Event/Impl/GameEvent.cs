@@ -1,6 +1,6 @@
 namespace CognifyAntiCheat.Listener.Event.Impl;
 
-public class GameEvent<T> : CognifyAntiCheat.Listener.Event.Event
+public class GameEvent<T> : Event
 {
     public GameEvent(T obj)
     {

@@ -1,6 +1,6 @@
 namespace CognifyAntiCheat.Listener.Event.Impl;
 
-public class IntroCutsceneEvent : CognifyAntiCheat.Listener.Event.Event
+public class IntroCutsceneEvent : Event
 {
     public IntroCutsceneEvent(IntroCutscene introCutscene)
     {

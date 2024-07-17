@@ -1,6 +1,6 @@
 namespace CognifyAntiCheat.Listener.Event.Impl;
 
-public class AmongUsClientEvent : CognifyAntiCheat.Listener.Event.Event
+public class AmongUsClientEvent : Event
 {
     public AmongUsClientEvent(AmongUsClient client)
     {

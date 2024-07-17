@@ -1,6 +1,6 @@
 namespace CognifyAntiCheat.Listener.Event.Impl;
 
-public class GameStartManagerEvent : CognifyAntiCheat.Listener.Event.Event
+public class GameStartManagerEvent : Event
 {
     public GameStartManagerEvent(GameStartManager manager)
     {

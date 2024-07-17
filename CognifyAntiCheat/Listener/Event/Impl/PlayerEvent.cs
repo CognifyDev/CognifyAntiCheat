@@ -4,7 +4,7 @@ namespace CognifyAntiCheat.Listener.Event.Impl;
 ///     这个事件为关于玩家操作的总事件
 ///     所有关于玩家的事件类都是此事件的子类
 /// </summary>
-public class PlayerEvent : CognifyAntiCheat.Listener.Event.Event
+public class PlayerEvent : Event
 {
     public PlayerEvent(PlayerControl player)
     {

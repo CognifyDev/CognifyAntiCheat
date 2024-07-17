@@ -1,6 +1,6 @@
 namespace CognifyAntiCheat.Listener.Event.Impl;
 
-public class PlayerPhysicsEvent : CognifyAntiCheat.Listener.Event.Event
+public class PlayerPhysicsEvent : Event
 {
     public PlayerPhysicsEvent(PlayerPhysics playerPhysics)
     {

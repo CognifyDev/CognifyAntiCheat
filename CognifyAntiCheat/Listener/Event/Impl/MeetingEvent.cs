@@ -4,7 +4,7 @@
 ///     这个事件为关于会议界面操作的总事件
 ///     所有关于会议界面的事件类都是此事件的子类
 /// </summary>
-public class MeetingEvent : CognifyAntiCheat.Listener.Event.Event
+public class MeetingEvent : Event
 {
     public MeetingEvent(MeetingHud meeting)
     {

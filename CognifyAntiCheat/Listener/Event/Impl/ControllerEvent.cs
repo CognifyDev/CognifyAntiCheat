@@ -1,6 +1,6 @@
 namespace CognifyAntiCheat.Listener.Event.Impl;
 
-public class ControllerEvent : CognifyAntiCheat.Listener.Event.Event
+public class ControllerEvent : Event
 {
     public ControllerEvent(ControllerManager manager)
     {

@@ -1,6 +1,6 @@
 namespace CognifyAntiCheat.Listener.Event.Impl;
 
-public class HudManagerEvent : CognifyAntiCheat.Listener.Event.Event
+public class HudManagerEvent : Event
 {
     public HudManagerEvent(HudManager manager)
     {

@@ -1,6 +1,6 @@
 namespace CognifyAntiCheat.Listener.Event.Impl;
 
-public class TaskAddButtonEvent : CognifyAntiCheat.Listener.Event.Event
+public class TaskAddButtonEvent : Event
 {
     public TaskAddButtonEvent(TaskAddButton taskAddButton)
     {
