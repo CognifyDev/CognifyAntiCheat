@@ -36,8 +36,7 @@ public class ListenerManager
         foreach (var methodInfo in listener.GetType().GetMethods(BindingFlags.Instance |
                                                                  BindingFlags.Public |
                                                                  BindingFlags.NonPublic |
-                                                                 BindingFlags.Static |
-                                                                 BindingFlags.DeclaredOnly))
+                                                                 BindingFlags.Static))
         {
             var attributes = methodInfo.GetCustomAttributes(typeof(EventHandlerAttribute), false);
             if (attributes.Length < 1) continue;

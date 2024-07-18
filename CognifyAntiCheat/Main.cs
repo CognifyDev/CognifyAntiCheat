@@ -1,5 +1,11 @@
 ﻿using BepInEx;
 using BepInEx.Unity.IL2CPP;
+using CognifyAntiCheat.Check;
+using CognifyAntiCheat.Check.Impl.BadPackets;
+using CognifyAntiCheat.Config;
+using CognifyAntiCheat.Config.Impl;
+using CognifyAntiCheat.Listener;
+using CognifyAntiCheat.Listener.Impl;
 using CognifyAntiCheat.Utils;
 using HarmonyLib;
 
@@ -13,7 +19,7 @@ public partial class Main : BasePlugin
     public const string PluginGuid = "top.cognifydev.anticheat";
     public const string DisplayName = "CognifyAntiCheat";
 
-    public static StackTraceLogger Logger { get; private set; }
+    public static StackTraceLogger Logger { get; private set; } = null!;
     private Harmony Harmony { get; } = new(PluginGuid);
 
     public static Main Instance { get; private set; } = null!;
@@ -25,10 +31,25 @@ public partial class Main : BasePlugin
         
         ResourceUtils.WriteToFileFromResource(
             "BepInEx/core/YamlDotNet.dll",
-            "COG.Resources.InDLL.Depends.YamlDotNet.dll");
+            "CognifyAntiCheat.Resources.InDLL.Depends.YamlDotNet.dll");
         ResourceUtils.WriteToFileFromResource(
             "BepInEx/core/YamlDotNet.xml",
-            "COG.Resources.InDLL.Depends.YamlDotNet.xml");
+            "CognifyAntiCheat.Resources.InDLL.Depends.YamlDotNet.xml");
+        
+        // register configs
+        ConfigManager.GetManager().Register(new SettingsConfig());
+        
+        // register listeners
+        ListenerManager.GetManager().RegisterListeners(new IListener[]
+        {
+            new PlayerListener()
+        });
+        
+        // register checks
+        CheckManager.RegisterChecks(new[]
+        {
+            typeof(BadPacketsA)
+        });
         
         Harmony.PatchAll();
     }

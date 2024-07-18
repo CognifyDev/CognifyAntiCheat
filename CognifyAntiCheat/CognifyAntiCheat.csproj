@@ -19,9 +19,6 @@
     <ItemGroup>
         <EmbeddedResource Include="Resources\InDLL\*.*"/>
     </ItemGroup>
-    <ItemGroup>
-        <EmbeddedResource Include="Resources\InDLL\Images\Setting\*.*" />
-    </ItemGroup>
 
     <ItemGroup>
         <EmbeddedResource Include="Resources\InDLL\Config\*.*" />
