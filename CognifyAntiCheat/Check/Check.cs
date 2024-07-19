@@ -43,9 +43,9 @@ public abstract class Check : IListener
 
     protected void Fail()
     {
+        _violations ++;
         Main.Logger.LogInfo($"Player {Target.Data.PlayerName} has failed to pass {Name} Violations/MaxViolations " +
                             $"=> {_violations}/{MaxViolations}");
-        _violations ++;
         if (_violations >= MaxViolations) Punish();
     }
 
@@ -56,7 +56,7 @@ public abstract class Check : IListener
 
         if (kick)
         {
-            AmongUsClient.Instance.KickPlayer(Target.PlayerId, ban);
+            AmongUsClient.Instance.KickPlayer(Target.GetClientID(), ban);
             Main.Logger.LogInfo($"Player {Target.Data.PlayerName} has been punished due to {Name} Violations/MaxViolations " +
                                 $"=> {_violations}/{MaxViolations}, Kick => {kick}, Ban => {ban}");
         }

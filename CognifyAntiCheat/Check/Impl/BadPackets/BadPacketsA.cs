@@ -12,7 +12,7 @@ public class BadPacketsA : Check
 {
     public BadPacketsA(PlayerControl target) : base("BadPacketsA", target)
     {
-        Description = "This check will kick those players who use AUM";
+        Description = "This check will check those players who use AUM";
     }
 
     [EventHandler(EventHandlerType.Postfix)]
