@@ -25,9 +25,15 @@
 
 check-settings:
   kick: true
-  ban: true
+  ban: false
 
 checks:
   BadPacketsA:
     enable: true
     max-violations: 1
+  VentMoveA:
+    enable: true
+    max-violations: 2
+  NoClipA:
+    enable: true
+    max-violations: 5

@@ -2,6 +2,8 @@
 using BepInEx.Unity.IL2CPP;
 using CognifyAntiCheat.Check;
 using CognifyAntiCheat.Check.Impl.BadPackets;
+using CognifyAntiCheat.Check.Impl.Movement.NoClip;
+using CognifyAntiCheat.Check.Impl.Movement.VentMove;
 using CognifyAntiCheat.Config;
 using CognifyAntiCheat.Config.Impl;
 using CognifyAntiCheat.Listener;
@@ -48,7 +50,9 @@ public partial class Main : BasePlugin
         // register checks
         CheckManager.RegisterChecks(new[]
         {
-            typeof(BadPacketsA)
+            typeof(BadPacketsA),
+            typeof(VentMoveA),
+            typeof(NoClipA)
         });
         
         Harmony.PatchAll();

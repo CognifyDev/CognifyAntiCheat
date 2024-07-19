@@ -10,7 +10,11 @@ public class PlayerListener : IListener
     [EventHandler(EventHandlerType.Postfix)]
     public void OnPlayerJoin(PlayerControlAwakeEvent @event)
     {
-        if (!AmongUsClient.Instance.AmHost) return;
+        if (!AmongUsClient.Instance.AmHost)
+        {
+            CheckManager.ReloadManager();
+            return;
+        }
         if (@event.Player == null) return;
         if (PlayerControl.LocalPlayer.IsSamePlayer(@event.Player)) return;
         var player = @event.Player;

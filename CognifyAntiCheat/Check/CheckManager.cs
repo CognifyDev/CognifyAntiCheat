@@ -58,4 +58,10 @@ public class CheckManager
     {
         CheckTypes.AddRange(checkTypes);
     }
+
+    public static void ReloadManager()
+    {
+        CheckManagers.ForEach(checkManager => checkManager.Clear());
+        CheckManagers.Clear();
+    }
 }
