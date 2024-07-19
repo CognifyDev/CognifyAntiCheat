@@ -100,9 +100,10 @@ public class ListenerManager
     public bool ExecuteHandlers(Event.Event @event, EventHandlerType type)
     {
         var toReturn = true;
-
-        foreach (var handler in _handlers)
+        
+        for (var i = 0; i < _handlers.Count; i++)
         {
+            var handler = _handlers[i];
             if (!type.Equals(handler.EventHandlerType) ||
                 !handler.EventType.IsInstanceOfType(@event)) continue;
 

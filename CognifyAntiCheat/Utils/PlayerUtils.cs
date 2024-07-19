@@ -67,7 +67,14 @@ public static class PlayerUtils
 
     public static bool IsSamePlayer(this PlayerControl player, PlayerControl target)
     {
-        return player.PlayerId == target.PlayerId;
+        try
+        {
+            return player.PlayerId == target.PlayerId;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     public static void SetNamePrivately(PlayerControl target, PlayerControl seer, string name)

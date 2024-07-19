@@ -8,7 +8,7 @@ namespace CognifyAntiCheat.Check.Impl.BadPackets;
 /// <summary>
 /// This check will kick those players who use AUM
 /// </summary>
-public class BadPacketsA : Check
+public class BadPacketsA : Check, IListener
 {
     public BadPacketsA(PlayerControl target) : base("BadPacketsA", target)
     {

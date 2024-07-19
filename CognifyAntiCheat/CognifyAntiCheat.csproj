@@ -38,6 +38,10 @@
         <PackageReference Include="YamlDotNet" Version="15.1.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Check\Impl\Others\" />
+    </ItemGroup>
+
     <Target Name="Copy" AfterTargets="Build" Condition="'$(AmongUs)' != ''">
         <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(AmongUs)/BepInEx/plugins/" UseSymboliclinksIfPossible="true"/>
     </Target>

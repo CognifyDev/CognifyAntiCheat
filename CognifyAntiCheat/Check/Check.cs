@@ -1,12 +1,10 @@
-﻿using System.Linq;
-using CognifyAntiCheat.Config.Impl;
+﻿using CognifyAntiCheat.Config.Impl;
 using CognifyAntiCheat.Listener;
-using CognifyAntiCheat.Listener.Event.Impl.Player;
 using CognifyAntiCheat.Utils;
 
 namespace CognifyAntiCheat.Check;
 
-public abstract class Check : IListener
+public abstract class Check
 {
     public Check(string name, PlayerControl target)
     {
@@ -28,18 +26,6 @@ public abstract class Check : IListener
     public abstract IListener GetListener();
 
     private int _violations;
-    
-    [EventHandler(EventHandlerType.Postfix)]
-    public void OnPlayerUpdate(PlayerFixedUpdateEvent @event)
-    {
-        foreach (var playerControl in PlayerUtils.GetAllPlayers())
-        {
-            if (Target.IsSamePlayer(playerControl) && playerControl.Data.Disconnected)
-            {
-                ListenerManager.GetManager().UnRegisterHandlers(ListenerManager.GetManager().GetHandlers(this).ToArray());
-            }
-        }
-    }
 
     protected void Fail()
     {
