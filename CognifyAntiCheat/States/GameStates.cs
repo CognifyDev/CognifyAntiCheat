@@ -1,4 +1,5 @@
 using InnerNet;
+using AmongUs.GameOptions;
 
 namespace CognifyAntiCheat.States;
 
@@ -30,4 +31,17 @@ public static class GameStates
     public static bool IsVoting => IsMeeting &&
                                    MeetingHud.Instance.state is MeetingHud.VoteStates.Voted
                                        or MeetingHud.VoteStates.NotVoted;
+    
+    /// <summary>
+    ///     是否是躲猫猫模式
+    /// </summary>
+    public static bool isHideNSeek => GameOptionsManager.Instance.CurrentGameOptions.GameMode == GameModes.HideNSeek;
+    
+    /// <summary>
+    ///     获取真实名
+    /// </summary>
+    public static string GetRealName(this PlayerControl player, bool isMeeting = false)
+    {
+        return isMeeting ? player?.Data?.PlayerName : player?.name;
+    }
 }
