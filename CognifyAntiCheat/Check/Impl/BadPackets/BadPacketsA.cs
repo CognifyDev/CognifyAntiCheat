@@ -18,7 +18,6 @@ public class BadPacketsA : Check, IListener
     {
         if (!AmongUsClient.Instance.AmHost) return;
         var player = @event.Player;
-        if (player.IsSamePlayer(PlayerControl.LocalPlayer)) return;
         if (player.IsSamePlayer(Target) && CheckConstant.AmongUsMenuAndForksRpcs.Contains(@event.CallId)) Fail();
     }
 

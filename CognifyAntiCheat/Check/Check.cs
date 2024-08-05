@@ -9,13 +9,14 @@ public abstract class Check
     public Check(string name, PlayerControl target)
     {
         Name = name;
+        Description = "No description.";
         MaxViolations = (int) SettingsConfig.Instance.YamlReader!.GetInt($"checks.{Name}.max-violations")!;
         Enabled = (bool)SettingsConfig.Instance.YamlReader!.GetBool($"checks.{Name}.enable")!;
         Target = target;
     }
 
     public string Name { get; }
-    public string? Description { get; protected set; }
+    public string Description { get; protected set; }
     
     public int MaxViolations { get; }
     
@@ -26,6 +27,8 @@ public abstract class Check
     public abstract IListener GetListener();
 
     private int _violations;
+
+    public bool Cancelled { get; } = SettingsConfig.Instance.Cancelled;
 
     protected void Fail()
     {

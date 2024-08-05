@@ -23,18 +23,34 @@
 #                                                                                                                                           #
 #############################################################################################################################################
 
+# WARNING: THIS ANTI-CHEAT ONLY SUPPORT VANILLA AMONG US CLIENTS
+# BECAUSE THE MOD ROOMS USUALLY ARE PRIVATE.
+
 check-settings:
+  # Should we kick those who are checked as 'hackers'?
   kick: true
+  
+  # Should we ban those who are checked as 'hackers'?
   ban: false
+  
+  # Should we add them to the blacklist when they are marked as 'hackers'?
   add-to-blacklist: true
+  
+  # Should we cancel the unfair actions?
+  cancelled: true
+
+# Options Description
+# enable => should we enable them?
+# max-violations => the max violations that are allowed
+# Usually violations will add 1 when the player is checked as a hacker.
+# If you cannot understand them clearly, please do not change them.
 
 checks:
+  # This will check those players who use AUM & SickoMenu
   BadPacketsA:
     enable: true
     max-violations: 1
-  VentMoveA:
+  # This will check those who report at wrong time.
+  IllegalReportA:
     enable: true
     max-violations: 2
-  NoClipA:
-    enable: true
-    max-violations: 5
