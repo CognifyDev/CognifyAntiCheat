@@ -26,6 +26,7 @@
 check-settings:
   kick: true
   ban: false
+  add-to-blacklist: true
 
 checks:
   BadPacketsA:

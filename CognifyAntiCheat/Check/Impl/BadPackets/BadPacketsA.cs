@@ -1,4 +1,5 @@
-﻿using CognifyAntiCheat.Constant;
+﻿using System.Linq;
+using CognifyAntiCheat.Constant;
 using CognifyAntiCheat.Listener;
 using CognifyAntiCheat.Listener.Event.Impl.Player;
 using CognifyAntiCheat.Utils;
@@ -9,7 +10,7 @@ public class BadPacketsA : Check, IListener
 {
     public BadPacketsA(PlayerControl target) : base("BadPacketsA", target)
     {
-        Description = "This check will check those players who use AUM";
+        Description = "This check will check those players who use AUM & SickoMenu";
     }
 
     [EventHandler(EventHandlerType.Postfix)]
@@ -18,7 +19,7 @@ public class BadPacketsA : Check, IListener
         if (!AmongUsClient.Instance.AmHost) return;
         var player = @event.Player;
         if (player.IsSamePlayer(PlayerControl.LocalPlayer)) return;
-        if (player.IsSamePlayer(Target) && @event.CallId == CheckConstant.AmongUsMenuRpc) Fail();
+        if (player.IsSamePlayer(Target) && CheckConstant.AmongUsMenuAndForksRpcs.Contains(@event.CallId)) Fail();
     }
 
     public override IListener GetListener() => this;
